@@ -1,0 +1,99 @@
+﻿<Window x:Name="paperPad" x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Untitled- PaperPad" FontFamily="Consolas"  Height="450" Width="725" FontSize="16" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Center" Icon="Resources/Hopstarter-Sleek-Xp-Basic-Notes.ico">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" FontFamily="Consolas" FontSize="13">
+            <MenuItem Header="_File">
+                <MenuItem x:Name="menunew" Header="_New" InputGestureText="Ctrl+N" Click="menunew_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/new-file-icon.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuopen" Header="_Open..." InputGestureText="Ctrl+O" Click="menuopen_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/folder-open-icon.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menusave" Header="_Save" InputGestureText="Ctrl+S">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Actions-document-save-icon.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menusaveas" Header="_Save As..."  Click="menusaveas_Click">
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="menusetup" Header="_Page Setup...">
+                </MenuItem>
+                <MenuItem x:Name="menuprint" Header="_Print..." InputGestureText="Ctrl+P" Click="menuprint_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/print-icon.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="menuexit" Header="_Exit" Click="menuexit_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Actions-edit-delete-icon.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem x:Name="menuUndo" Header="_Undo" InputGestureText="Ctrl+Z">
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="menucut" Header="_Cut" Command="ApplicationCommands.Cut"  InputGestureText="Ctrl+X">
+                </MenuItem>
+                <MenuItem x:Name="menucopy" Header="_Copy" Command="ApplicationCommands.Copy" InputGestureText="Ctrl+C">
+                </MenuItem>
+                <MenuItem x:Name="menupaste" Header="_Paste" Command="ApplicationCommands.Paste" InputGestureText="Ctrl+V">
+                </MenuItem>
+                <MenuItem x:Name="menudelete" Header="_Delete" InputGestureText="Del">
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="menufind" Header="_Find..." InputGestureText="Ctrl+F">
+                </MenuItem>
+                <MenuItem x:Name="menufindnxt" Header="_Find Next" InputGestureText="F3">
+                </MenuItem>
+                <MenuItem x:Name="menureplace" Header="_Replace..." InputGestureText="Ctrl+H">
+                </MenuItem>
+                <MenuItem x:Name="menugoto" Header="_Go To..." InputGestureText="Ctrl+G">
+                </MenuItem>
+                <Separator />
+                <MenuItem x:Name="menuselall" Header="_Select All" InputGestureText="Ctrl+A">
+                </MenuItem>
+                <MenuItem x:Name="menutimedate" Header="_Time/Date" InputGestureText="F5">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Format">
+                <MenuItem x:Name="menuwordwrap" Header="_Word Wrap" Click="menuwordwrap_Click"></MenuItem>
+                <MenuItem x:Name="menufont" Header="_Font...">
+                    <MenuItem x:Name="menuFontsize" Header="Font Size">
+                        <MenuItem x:Name="menusize5" Header="5px" IsCheckable="True" StaysOpenOnClick="True" Click="menusize5_Click"></MenuItem>
+                        <MenuItem x:Name="menusize10" Header="10px" IsCheckable="True" StaysOpenOnClick="True" Click="menusize10_Click"></MenuItem>
+                        <MenuItem x:Name="menusize15" Header="15px" IsCheckable="True" StaysOpenOnClick="True" Click="menusize15_Click"></MenuItem>
+                        <MenuItem x:Name="menusize20" Header="20px" IsCheckable="True" StaysOpenOnClick="True" Click="menusize20_Click"></MenuItem>
+                    </MenuItem>
+                    <MenuItem x:Name="menuFontstyle" Header="Font">
+                        <MenuItem x:Name="menuFontConsolas" Header="Consolas" IsCheckable="True" StaysOpenOnClick="True" Click="menuFontConsolas_Click"></MenuItem>
+                        <MenuItem x:Name="menuFontTimes" Header="Times" IsCheckable="True" StaysOpenOnClick="True" Click="menuFontTimes_Click"></MenuItem>
+                        <MenuItem x:Name="menuFontArial" Header="Arial" IsCheckable="True" StaysOpenOnClick="True" Click="menuFontArial_Click"></MenuItem>
+                        <MenuItem x:Name="menuFontCourier" Header="Courier" IsCheckable="True" StaysOpenOnClick="True" Click="menuFontCourier_Click"></MenuItem>
+                    </MenuItem>
+                </MenuItem>
+                </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem x:Name="menustatbar" Header="_Status Bar"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem x:Name="menuviewhelp" Header="_View Help"></MenuItem>
+                <Separator/>
+                <MenuItem x:Name="menuabout" Header="_About PaperPad"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <RichTextBox x:Name="textboxDoc" ScrollBar.Scroll="textboxDoc_Scroll" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"  AcceptsTab="True" AcceptsReturn="True" Block.LineHeight="2" />
+    </DockPanel>
+</Window>
